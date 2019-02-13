@@ -48,32 +48,7 @@ Public Class utilities
         SystemParametersInfo(SETDESKWALLPAPER, 0, imagefile, UPDATEINIFILE)
         Return True
     End Function
-    '' Public Function ProcessWallpaper() As Boolean
-    'Dim wOPs As New WebOps
-    '    Dim AppDataPath As String
-    '    Dim u As New utilities
-    '    Dim doesAppDataPathExists As Boolean
-    '    Dim rP As Bitmap
-    '    Dim setSuccess As Boolean
-    '    Dim randomfilename As String = u.createRandomFilename()
-    '    rP = tempPB(GetRandomImageURL()) ' fill form picturebox for testing
-    '    AppDataPath = u.getAppDataPath()
-    '    doesAppDataPathExists = u.checkfolderexists(AppDataPath)
-    '    If doesAppDataPathExists Then
-    '        rP.Save(AppDataPath & "\75Central\" & randomfilename, Imaging.ImageFormat.Jpeg)
-    '    End If
-    '    setSuccess = u.setWallPaper(AppDataPath & "\75Central\" & randomfilename)
-    '    wait(5)
-    '    ClearAppData(AppDataPath)
-    '    Return True
-    'End Function
-    'Private Function GetRandomImageURL() As String
-    'Dim wOPs As New WebOps
-    ' Dim randomUrl As String
-    '      randomUrl = wOPs.getURL()
-    ' Return randomUrl
-
-    ' End Function
+    
     Private Function tempPB(url As String) As Bitmap 'for testing only -
         Dim tClient As WebClient = New WebClient
 
@@ -250,27 +225,7 @@ Public Class utilities
             Dim error1 As Boolean = True
         End Try
     End Sub
-    Public Shared Sub exallMeta(iPath As String)
-        Dim directories As IEnumerable(Of MetadataExtractor.Directory) = ImageMetadataReader.ReadMetadata(iPath)
-        'Dim directory = directories.OfType(Of ExifSubIfdDirectory)().FirstOrDefault()
-        Dim dateTime = Nothing
 
-        'If directory IsNot Nothing Then
-        '    If directory.TryGetDateTime(ExifDirectoryBase.TagDateTimeOriginal, dateTime) Then
-        '        Console.WriteLine("datetime" & dateTime)
-        '    End If
-        'End If
-
-        For Each directory In directories
-
-            For Each tag In directory.Tags
-                Console.WriteLine($"{directory.Name} - {tag.Name} = {tag.Description}")
-
-
-            Next
-        Next
-
-    End Sub
     Public Sub LogExifErrors(errormessage As String)
         Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\exiferrors_2.txt"
         Dim sw As StreamWriter
