@@ -8,7 +8,12 @@ Public Class Form1
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim directory As String
+        Dim result As Integer
         directory = Me.FolderBrowserDialog1.SelectedPath
+        If (directory.Trim() = "") Then
+            result = MsgBox("Please choose a source folder of .jpg images to analyze", MsgBoxStyle.Critical, "Oh noes")
+            Return
+        End If
         ProcessFiles(directory)
     End Sub
     Private Sub ProcessFiles(directory As String)
@@ -19,7 +24,16 @@ Public Class Form1
         Dim i As Integer = 1
         Dim u As New utilities
         Dim pbStepSize As Integer
+        Dim result As Integer
         Dim pbStepCount As Integer = 1
+        Globals.SaveLocation = FolderBrowserDialog2.SelectedPath
+        If Globals.SaveLocation.Trim = "" Then
+            result = MsgBox("No save location was selected! Do you want to save GPX files to the source image folder?", 4, "Hmmm...")
+        End If
+        If result = DialogResult.No Then
+            Return
+        End If
+
         Globals.dtab.Columns.Add("lat", GetType(System.String))
         Globals.dtab.Columns.Add("lon", GetType(System.String))
         Globals.dtab.Columns.Add("datetake", GetType(System.DateTime))
@@ -116,6 +130,11 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.lblStatus.Text = "Waiting to Start"
+
+    End Sub
+
+    Private Sub btnChooseTrackFile_Click(sender As Object, e As EventArgs) Handles btnChooseTrackFile.Click
+        Me.FolderBrowserDialog2.ShowDialog()
 
     End Sub
 End Class

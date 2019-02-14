@@ -29,13 +29,15 @@ Partial Class Form1
         Me.ImageCount = New System.Windows.Forms.TextBox()
         Me.pbReading = New System.Windows.Forms.ProgressBar()
         Me.lblStatus = New System.Windows.Forms.Label()
+        Me.btnChooseTrackFile = New System.Windows.Forms.Button()
+        Me.FolderBrowserDialog2 = New System.Windows.Forms.FolderBrowserDialog()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(50, 225)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(6)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(336, 44)
         Me.Button1.TabIndex = 0
@@ -45,7 +47,7 @@ Partial Class Form1
         'Button2
         '
         Me.Button2.Location = New System.Drawing.Point(50, 63)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(6)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(336, 44)
         Me.Button2.TabIndex = 1
@@ -55,8 +57,8 @@ Partial Class Form1
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(358, 381)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.DataGridView1.Location = New System.Drawing.Point(436, 459)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(6)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(1250, 288)
         Me.DataGridView1.TabIndex = 2
@@ -65,7 +67,7 @@ Partial Class Form1
         'ImageCount
         '
         Me.ImageCount.Location = New System.Drawing.Point(568, 311)
-        Me.ImageCount.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ImageCount.Margin = New System.Windows.Forms.Padding(4)
         Me.ImageCount.Name = "ImageCount"
         Me.ImageCount.Size = New System.Drawing.Size(100, 31)
         Me.ImageCount.TabIndex = 3
@@ -85,11 +87,21 @@ Partial Class Form1
         Me.lblStatus.Size = New System.Drawing.Size(0, 25)
         Me.lblStatus.TabIndex = 5
         '
+        'btnChooseTrackFile
+        '
+        Me.btnChooseTrackFile.Location = New System.Drawing.Point(50, 126)
+        Me.btnChooseTrackFile.Name = "btnChooseTrackFile"
+        Me.btnChooseTrackFile.Size = New System.Drawing.Size(336, 43)
+        Me.btnChooseTrackFile.TabIndex = 6
+        Me.btnChooseTrackFile.Text = "Select GPX Files Save Location"
+        Me.btnChooseTrackFile.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(728, 572)
+        Me.Controls.Add(Me.btnChooseTrackFile)
         Me.Controls.Add(Me.lblStatus)
         Me.Controls.Add(Me.pbReading)
         Me.Controls.Add(Me.ImageCount)
@@ -97,7 +109,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
-        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Form1"
@@ -115,4 +127,6 @@ Partial Class Form1
     Friend WithEvents ImageCount As TextBox
     Friend WithEvents pbReading As ProgressBar
     Friend WithEvents lblStatus As Label
+    Friend WithEvents btnChooseTrackFile As Button
+    Friend WithEvents FolderBrowserDialog2 As FolderBrowserDialog
 End Class
