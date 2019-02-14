@@ -30,7 +30,8 @@ Public Class Form1
         If Globals.SaveLocation.Trim = "" Then
             result = MsgBox("No save location was selected! Do you want to save GPX files to the source image folder?", 4, "Hmmm...")
         End If
-        If result = DialogResult.No Then
+        If result = DialogResult.No Then 'TODO: Add code to use selected path or default path
+
             Return
         End If
 
