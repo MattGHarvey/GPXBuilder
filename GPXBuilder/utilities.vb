@@ -86,7 +86,9 @@ Public Class utilities
 
 
     End Sub
-
+    Public Shared Function GetPBTickSize(fileCount As Integer)
+        Return fileCount \ 100
+    End Function
     Public Shared Sub initGPX()
         Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\waypoints2.gpx"
         Dim sw As StreamWriter

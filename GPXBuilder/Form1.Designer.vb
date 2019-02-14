@@ -27,23 +27,27 @@ Partial Class Form1
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ImageCount = New System.Windows.Forms.TextBox()
+        Me.pbReading = New System.Windows.Forms.ProgressBar()
+        Me.lblStatus = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(25, 71)
+        Me.Button1.Location = New System.Drawing.Point(50, 225)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(168, 23)
+        Me.Button1.Size = New System.Drawing.Size(336, 44)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Process"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(25, 33)
+        Me.Button2.Location = New System.Drawing.Point(50, 63)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(168, 23)
+        Me.Button2.Size = New System.Drawing.Size(336, 44)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "Choose Image Source Folder"
         Me.Button2.UseVisualStyleBackColor = True
@@ -51,30 +55,49 @@ Partial Class Form1
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(179, 198)
+        Me.DataGridView1.Location = New System.Drawing.Point(358, 381)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(625, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(1250, 288)
         Me.DataGridView1.TabIndex = 2
         Me.DataGridView1.Visible = False
         '
         'ImageCount
         '
-        Me.ImageCount.Location = New System.Drawing.Point(86, 115)
-        Me.ImageCount.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ImageCount.Location = New System.Drawing.Point(568, 311)
+        Me.ImageCount.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ImageCount.Name = "ImageCount"
-        Me.ImageCount.Size = New System.Drawing.Size(52, 20)
+        Me.ImageCount.Size = New System.Drawing.Size(100, 31)
         Me.ImageCount.TabIndex = 3
+        '
+        'pbReading
+        '
+        Me.pbReading.Location = New System.Drawing.Point(50, 352)
+        Me.pbReading.Name = "pbReading"
+        Me.pbReading.Size = New System.Drawing.Size(336, 38)
+        Me.pbReading.TabIndex = 4
+        '
+        'lblStatus
+        '
+        Me.lblStatus.AutoSize = True
+        Me.lblStatus.Location = New System.Drawing.Point(45, 317)
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(0, 25)
+        Me.lblStatus.TabIndex = 5
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(231, 157)
+        Me.ClientSize = New System.Drawing.Size(728, 572)
+        Me.Controls.Add(Me.lblStatus)
+        Me.Controls.Add(Me.pbReading)
         Me.Controls.Add(Me.ImageCount)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Form1"
@@ -90,4 +113,6 @@ Partial Class Form1
     Friend WithEvents Button2 As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents ImageCount As TextBox
+    Friend WithEvents pbReading As ProgressBar
+    Friend WithEvents lblStatus As Label
 End Class

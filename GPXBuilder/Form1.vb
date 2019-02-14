@@ -14,36 +14,54 @@ Public Class Form1
     Private Sub ProcessFiles(directory As String)
         Dim di As New DirectoryInfo(directory)
 
-        Dim fiArr As FileInfo() = di.GetFiles()
+        Dim fiArr As FileInfo() = di.GetFiles("*.jpg") 'we only want *.jpg files
         Dim fri As FileInfo
         Dim i As Integer = 1
         Dim u As New utilities
+        Dim pbStepSize As Integer
+        Dim pbStepCount As Integer = 1
         Globals.dtab.Columns.Add("lat", GetType(System.String))
         Globals.dtab.Columns.Add("lon", GetType(System.String))
         Globals.dtab.Columns.Add("datetake", GetType(System.DateTime))
-
+        Me.lblStatus.Text = "Initializing Output Files"
         utilities.initGPX()
         utilities.initTrack()
-
+        pbStepSize = utilities.GetPBTickSize(fiArr.Count)
+        Me.lblStatus.Text = "Reading GPS Data"
         For Each fri In fiArr
-            If fri.Extension = ".jpg" Then 'only process jpeg files
-                exMeta2(fri.FullName, i)
+            ' If fri.Extension = ".jpg" Then 'only process jpeg files
+            exMeta2(fri.FullName, i)
 
                 Me.ImageCount.Text = i
                 Application.DoEvents()
                 i = i + 1
+            pbStepCount = pbStepCount + 1
+            If pbStepCount = pbStepSize Then
+                Me.pbReading.Increment(1)
+                pbStepCount = 1
 
             End If
+
+            '  End If
         Next fri
         fri = Nothing
         SortDataTable()
-
+        pbStepCount = 1
+        Me.lblStatus.Text = "Writing GPX files"
         For j As Integer = 0 To DataGridView1.Rows.Count - 1
             ' Add the qty value of the current row to total
             Me.ImageCount.Text = j + 1
             Application.DoEvents()
 
             u.writetrack(DataGridView1.Rows(j).Cells(0).Value, DataGridView1.Rows(j).Cells(1).Value, j, DataGridView1.Rows(j).Cells(2).Value)
+            u.writeWaypoint(DataGridView1.Rows(j).Cells(0).Value, DataGridView1.Rows(j).Cells(1).Value, j)
+
+            pbStepCount = pbStepCount + 1
+            If pbStepCount = pbStepSize Then
+                Me.pbReading.Increment(-1)
+                pbStepCount = 1
+
+            End If
         Next
 
 
@@ -97,6 +115,7 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.lblStatus.Text = "Waiting to Start"
 
     End Sub
 End Class
