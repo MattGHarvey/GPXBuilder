@@ -5,7 +5,7 @@ Imports MetadataExtractor
 Imports MetadataExtractor.Formats.Exif
 
 Public Class Form1
-    ' Public dtab As DataTable
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim directory As String
         directory = Me.FolderBrowserDialog1.SelectedPath
@@ -13,16 +13,11 @@ Public Class Form1
     End Sub
     Private Sub ProcessFiles(directory As String)
         Dim di As New DirectoryInfo(directory)
-        ' Get a reference to each file in that directory.
+
         Dim fiArr As FileInfo() = di.GetFiles()
-        ' Display the names of the files.
         Dim fri As FileInfo
         Dim i As Integer = 1
         Dim u As New utilities
-
-
-        'Dim dtab As 
-        ' Public dtab As DataTable
         Globals.dtab.Columns.Add("lat", GetType(System.String))
         Globals.dtab.Columns.Add("lon", GetType(System.String))
         Globals.dtab.Columns.Add("datetake", GetType(System.DateTime))
@@ -33,8 +28,7 @@ Public Class Form1
         For Each fri In fiArr
             If fri.Extension = ".jpg" Then 'only process jpeg files
                 exMeta2(fri.FullName, i)
-                ' u.dtab.Rows.Add()
-                'utilities.exMeta(fri.FullName, i)
+
                 Me.ImageCount.Text = i
                 Application.DoEvents()
                 i = i + 1
@@ -83,10 +77,9 @@ Public Class Form1
             gpsdirectory.GetGeoLocation()
             latitude = gpsdirectory.GetGeoLocation.Latitude
             Longitude = gpsdirectory.GetGeoLocation.Longitude
-            '  If directory.TryGetDateTime(GpsDirectory.TagLatitude, latitude) Then
+
             Console.WriteLine("Coordinates:" & latitude & "," & Longitude)
-            'u.writeWaypoint(latitude, Longitude, i.ToString())
-            ' u.writetrack(latitude, Longitude, i, datetime)
+
             Globals.dtab.Rows.Add(latitude, Longitude, datetime)
         Else
             u.LogExifErrors("GPSmissing: " & iPath)
@@ -97,8 +90,7 @@ Public Class Form1
 
     End Sub
     Public Sub SortDataTable()
-        ' Globals.dtab.DefaultView.Sort = "datetake ASC"
-        ' Globals.dtab.DefaultView.ToTable()
+
         Dim dv As New DataView(Globals.dtab)
         dv.Sort = "datetake ASC"
         DataGridView1.DataSource = dv

@@ -28,37 +28,13 @@ Public Class utilities
         Return True
 
     End Function
-    Public Function createRandomFilename() As String
-        Dim r As New Random
-        Return RandomString(r) & ".jpg"
 
-    End Function
-    Function RandomString(r As Random)
 
-        Dim s As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-        Dim sb As New StringBuilder
-        Dim cnt As Integer = r.Next(15, 33)
-        For i As Integer = 1 To cnt
-            Dim idx As Integer = r.Next(0, s.Length)
-            sb.Append(s.Substring(idx, 1))
-        Next
-        Return sb.ToString()
-    End Function
     Public Function setWallPaper(imagefile As String) As Boolean
         SystemParametersInfo(SETDESKWALLPAPER, 0, imagefile, UPDATEINIFILE)
         Return True
     End Function
-    
-    Private Function tempPB(url As String) As Bitmap 'for testing only -
-        Dim tClient As WebClient = New WebClient
 
-        Dim tImage As Bitmap = Bitmap.FromStream(New MemoryStream(tClient.DownloadData(url)))
-        'Form1.PictureBox1.Image = tImage
-        Return tImage
-
-
-
-    End Function
     Private Sub ClearAppData(apppath As String)
         Dim directoryName As String = apppath & "\75Central\"
         For Each deleteFile In System.IO.Directory.GetFiles(directoryName, "*.jpg", SearchOption.TopDirectoryOnly)
@@ -69,8 +45,7 @@ Public Class utilities
         Dim tClient As WebClient = New WebClient
 
         Dim tImage As Bitmap = Bitmap.FromStream(New MemoryStream(tClient.DownloadData(url)))
-        ' Dim sys As New System
-        'sys.ChangeBackground(tImage, True)
+
 
     End Sub
     Private Sub wait(ByVal seconds As Integer)
@@ -116,17 +91,10 @@ Public Class utilities
         Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\waypoints2.gpx"
         Dim sw As StreamWriter
         Try
-            'If (Not File.Exists(strFile)) Then
             sw = File.CreateText(strFile)
             sw.WriteLine("<?xml version=""1.0"" encoding=""UTF-8""?>")
             sw.WriteLine("<gpx version=""1.0"">")
             sw.WriteLine("<name>75CentralPhotography Locations</name>")
-
-
-
-            ' Else
-            '  sw = File.AppendText(strFile)
-            '  End If
 
             sw.Close()
         Catch ex As IOException
@@ -138,17 +106,13 @@ Public Class utilities
         Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\tracks2.gpx"
         Dim sw As StreamWriter
         Try
-            'If (Not File.Exists(strFile)) Then
+
             sw = File.CreateText(strFile)
             sw.WriteLine("<?xml version=""1.0"" encoding=""UTF-8""?>")
             sw.WriteLine("<gpx version=""1.0"">")
             sw.WriteLine("<name>75CentralPhotography Locations</name>")
 
             sw.WriteLine("<trk><name>75CentralPhotography</name><number>1</number><trkseg>")
-
-            ' Else
-            '  sw = File.AppendText(strFile)
-            '  End If
 
             sw.Close()
         Catch ex As IOException
