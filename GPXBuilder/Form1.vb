@@ -35,8 +35,9 @@ Public Class Form1
                 exMeta2(fri.FullName, i)
                 ' u.dtab.Rows.Add()
                 'utilities.exMeta(fri.FullName, i)
-                'Application.DoEvents()
-                'i = i + 1
+                Me.ImageCount.Text = i
+                Application.DoEvents()
+                i = i + 1
 
             End If
         Next fri
@@ -45,6 +46,9 @@ Public Class Form1
 
         For j As Integer = 0 To DataGridView1.Rows.Count - 1
             ' Add the qty value of the current row to total
+            Me.ImageCount.Text = j + 1
+            Application.DoEvents()
+
             u.writetrack(DataGridView1.Rows(j).Cells(0).Value, DataGridView1.Rows(j).Cells(1).Value, j, DataGridView1.Rows(j).Cells(2).Value)
         Next
 
@@ -98,5 +102,9 @@ Public Class Form1
         Dim dv As New DataView(Globals.dtab)
         dv.Sort = "datetake ASC"
         DataGridView1.DataSource = dv
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

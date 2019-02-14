@@ -18,3 +18,23 @@ C:\Users\harvemat\Dropbox\Visual Studio\GPXBuilder\GPXBuilder\obj\Debug\GPXBuild
 C:\Users\harvemat\Dropbox\Visual Studio\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.exe
 C:\Users\harvemat\Dropbox\Visual Studio\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.xml
 C:\Users\harvemat\Dropbox\Visual Studio\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.pdb
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\bin\Debug\GPXBuilder.exe.config
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\bin\Debug\GPXBuilder.exe
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\bin\Debug\GPXBuilder.pdb
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\bin\Debug\GPXBuilder.xml
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\bin\Debug\MetadataExtractor.dll
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\bin\Debug\Newtonsoft.Json.dll
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\bin\Debug\XmpCore.dll
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\bin\Debug\MetadataExtractor.xml
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\bin\Debug\Newtonsoft.Json.pdb
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\bin\Debug\Newtonsoft.Json.xml
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\bin\Debug\XmpCore.xml
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.vbprojAssemblyReference.cache
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.Form1.resources
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.Resources.resources
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.vbproj.GenerateResource.cache
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.vbproj.CoreCompileInputs.cache
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.vbproj.CopyComplete
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.exe
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.xml
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.pdb
