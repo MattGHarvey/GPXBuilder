@@ -74,7 +74,7 @@ Partial Class Form1
         'pbReading
         '
         Me.pbReading.Location = New System.Drawing.Point(38, 282)
-        Me.pbReading.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pbReading.Margin = New System.Windows.Forms.Padding(2)
         Me.pbReading.Name = "pbReading"
         Me.pbReading.Size = New System.Drawing.Size(252, 30)
         Me.pbReading.TabIndex = 4
@@ -91,7 +91,7 @@ Partial Class Form1
         'btnChooseTrackFile
         '
         Me.btnChooseTrackFile.Location = New System.Drawing.Point(38, 101)
-        Me.btnChooseTrackFile.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnChooseTrackFile.Margin = New System.Windows.Forms.Padding(2)
         Me.btnChooseTrackFile.Name = "btnChooseTrackFile"
         Me.btnChooseTrackFile.Size = New System.Drawing.Size(252, 34)
         Me.btnChooseTrackFile.TabIndex = 6
@@ -102,7 +102,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(323, 349)
+        Me.ClientSize = New System.Drawing.Size(1096, 597)
         Me.Controls.Add(Me.btnChooseTrackFile)
         Me.Controls.Add(Me.lblStatus)
         Me.Controls.Add(Me.pbReading)

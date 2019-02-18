@@ -38,6 +38,7 @@ Public Class Form1
         Globals.dtab.Columns.Add("lat", GetType(System.String))
         Globals.dtab.Columns.Add("lon", GetType(System.String))
         Globals.dtab.Columns.Add("datetake", GetType(System.DateTime))
+        Globals.dtab.Columns.Add("Filename", GetType(System.String))
         Me.lblStatus.Text = "Initializing Output Files"
         utilities.initGPX()
         utilities.initTrack()
@@ -68,8 +69,8 @@ Public Class Form1
             Me.ImageCount.Text = j + 1
             Application.DoEvents()
 
-            u.writetrack(DataGridView1.Rows(j).Cells(0).Value, DataGridView1.Rows(j).Cells(1).Value, j, DataGridView1.Rows(j).Cells(2).Value)
-            u.writeWaypoint(DataGridView1.Rows(j).Cells(0).Value, DataGridView1.Rows(j).Cells(1).Value, j)
+            u.writetrack(DataGridView1.Rows(j).Cells(0).Value, DataGridView1.Rows(j).Cells(1).Value, j, DataGridView1.Rows(j).Cells(2).Value, DataGridView1.Rows(j).Cells(3).Value)
+            u.writeWaypoint(DataGridView1.Rows(j).Cells(0).Value, DataGridView1.Rows(j).Cells(1).Value, j, DataGridView1.Rows(j).Cells(3).Value)
 
             pbStepCount = pbStepCount + 1
             If pbStepCount = pbStepSize Then
@@ -98,6 +99,7 @@ Public Class Form1
         Dim latitude = Nothing
         Dim datetime = Nothing
         Dim Longitude = Nothing
+        Dim filename As String
         Dim u As New utilities()
         If directory IsNot Nothing Then
             If directory.TryGetDateTime(ExifDirectoryBase.TagDateTimeOriginal, datetime) Then
@@ -112,8 +114,9 @@ Public Class Form1
             Longitude = gpsdirectory.GetGeoLocation.Longitude
 
             Console.WriteLine("Coordinates:" & latitude & "," & Longitude)
+            filename = Path.GetFileName(iPath)
 
-            Globals.dtab.Rows.Add(latitude, Longitude, datetime)
+            Globals.dtab.Rows.Add(latitude, Longitude, datetime, filename)
         Else
             u.LogExifErrors("GPSmissing: " & iPath)
         End If

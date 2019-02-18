@@ -11,43 +11,9 @@ Public Class utilities
     Public Shared dtab As DataTable
     Private Declare Function SystemParametersInfo Lib "user32" Alias "SystemParametersInfoA" (ByVal uAction As Integer, ByVal uParam As Integer, ByVal lpvParam As String, ByVal fuWinIni As Integer) As Integer
 
-    'Declare two constant  
-    Private Const SETDESKWALLPAPER = 20
-    Private Const UPDATEINIFILE = &H1
+
     Public Shared permalink As String
-    Public Function getAppDataPath()
-        ' Get the path to the Application Data folder
-        Return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
 
-    End Function
-    Public Function checkfolderexists(path As String) As Boolean
-        path = path & "\75Central"
-        If (Not System.IO.Directory.Exists(path)) Then
-            System.IO.Directory.CreateDirectory(path)
-        End If
-        Return True
-
-    End Function
-
-
-    Public Function setWallPaper(imagefile As String) As Boolean
-        SystemParametersInfo(SETDESKWALLPAPER, 0, imagefile, UPDATEINIFILE)
-        Return True
-    End Function
-
-    Private Sub ClearAppData(apppath As String)
-        Dim directoryName As String = apppath & "\75Central\"
-        For Each deleteFile In System.IO.Directory.GetFiles(directoryName, "*.jpg", SearchOption.TopDirectoryOnly)
-            File.Delete(deleteFile)
-        Next
-    End Sub
-    Private Sub setBG(url As String)
-        Dim tClient As WebClient = New WebClient
-
-        Dim tImage As Bitmap = Bitmap.FromStream(New MemoryStream(tClient.DownloadData(url)))
-
-
-    End Sub
     Private Sub wait(ByVal seconds As Integer)
         For i As Integer = 0 To seconds * 100
             System.Threading.Thread.Sleep(10)
@@ -75,8 +41,8 @@ Public Class utilities
             Longitude = gpsdirectory.GetGeoLocation.Longitude
             '  If directory.TryGetDateTime(GpsDirectory.TagLatitude, latitude) Then
             Console.WriteLine("Coordinates:" & latitude & "," & Longitude)
-            u.writeWaypoint(latitude, Longitude, i.ToString())
-            u.writetrack(latitude, Longitude, i, datetime)
+            'u.writeWaypoint(latitude, Longitude, i.ToString())
+            'u.writetrack(latitude, Longitude, i, datetime)
 
         Else
             u.LogExifErrors("GPSmissing: " & iPath)
@@ -90,7 +56,7 @@ Public Class utilities
         Return fileCount \ 100
     End Function
     Public Shared Sub initGPX()
-        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\waypoints2.gpx"
+        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\waypoints.gpx"
         Dim sw As StreamWriter
         Try
             sw = File.CreateText(strFile)
@@ -105,30 +71,31 @@ Public Class utilities
 
     End Sub
     Public Shared Sub initTrack()
-        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\tracks2.gpx"
+        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\tracks.gpx"
         Dim sw As StreamWriter
         Try
 
             sw = File.CreateText(strFile)
             sw.WriteLine("<?xml version=""1.0"" encoding=""UTF-8""?>")
             sw.WriteLine("<gpx version=""1.0"">")
-            sw.WriteLine("<name>75CentralPhotography Locations</name>")
+            ' sw.WriteLine("<name>75CentralPhotography Locations</name>")
 
-            sw.WriteLine("<trk><name>75CentralPhotography</name><number>1</number><trkseg>")
+            ' sw.WriteLine("<trk><name>75CentralPhotography</name><number>1</number><trkseg>")
+            sw.WriteLine("<trk><number>1</number><trkseg>")
 
             sw.Close()
         Catch ex As IOException
             Dim error1 As Boolean = True
         End Try
     End Sub
-    Public Sub writeWaypoint(lat As String, lon As String, n As String)
-        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\waypoints2.gpx"
+    Public Sub writeWaypoint(lat As String, lon As String, n As String, fname As String)
+        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\waypoints.gpx"
         Dim sw As StreamWriter
         Try
             sw = File.AppendText(strFile)
 
             sw.WriteLine("<wpt lat=""" & lat & """ lon=""" & lon & """>")
-            sw.WriteLine("<name>" & n & "</name>")
+            sw.WriteLine("<name>" & fname & "</name>")
             sw.WriteLine("</wpt>")
 
 
@@ -138,8 +105,8 @@ Public Class utilities
             Dim error1 As Boolean = True
         End Try
     End Sub
-    Public Sub writetrack(lat As String, lon As String, n As String, dt As DateTime)
-        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\tracks2.gpx"
+    Public Sub writetrack(lat As String, lon As String, n As String, dt As DateTime, fname As String)
+        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\tracks.gpx"
         Dim dtS As String = dt.ToString("yyyy-MM-ddTHH:mm:ssZ")
         If dtS = "0001-01-01T00:00:00Z" Then
             Return
@@ -151,6 +118,7 @@ Public Class utilities
 
             sw.WriteLine("<trkpt lat=""" & lat & """ lon=""" & lon & """>")
             sw.WriteLine("<ele>" & n & "</ele>")
+            sw.WriteLine("<name>" & fname & "</name>")
             sw.WriteLine("<time>" & dtS & "</time>")
             sw.WriteLine("</trkpt>")
 
@@ -162,7 +130,7 @@ Public Class utilities
         End Try
     End Sub
     Public Shared Sub CloseGPX()
-        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\waypoints2.gpx"
+        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\waypoints.gpx"
         Dim sw As StreamWriter
         Try
             sw = File.AppendText(strFile)
@@ -177,7 +145,7 @@ Public Class utilities
         End Try
     End Sub
     Public Shared Sub CloseTracks()
-        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\tracks2.gpx"
+        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\tracks.gpx"
         Dim sw As StreamWriter
         Try
             sw = File.AppendText(strFile)
@@ -193,7 +161,7 @@ Public Class utilities
     End Sub
 
     Public Sub LogExifErrors(errormessage As String)
-        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\exiferrors_2.txt"
+        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\exiferrors.txt"
         Dim sw As StreamWriter
         Try
             If (Not File.Exists(strFile)) Then
