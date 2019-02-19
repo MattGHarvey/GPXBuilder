@@ -48,9 +48,9 @@ Public Class Form1
             ' If fri.Extension = ".jpg" Then 'only process jpeg files
             exMeta2(fri.FullName, i)
 
-                Me.ImageCount.Text = i
-                Application.DoEvents()
-                i = i + 1
+            Me.ImageCount.Text = i
+            Application.DoEvents()
+            i = i + 1
             pbStepCount = pbStepCount + 1
             If pbStepCount = pbStepSize Then
                 Me.pbReading.Increment(1)

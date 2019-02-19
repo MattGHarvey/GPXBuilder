@@ -20,38 +20,8 @@ Public Class utilities
             Application.DoEvents()
         Next
     End Sub
-    Public Shared Sub exMeta(iPath As String, i As Integer)
-        Dim directories As IEnumerable(Of MetadataExtractor.Directory) = ImageMetadataReader.ReadMetadata(iPath)
-        Dim directory = directories.OfType(Of ExifSubIfdDirectory)().FirstOrDefault()
-        Dim gpsdirectory = directories.OfType(Of GpsDirectory)().FirstOrDefault()
-        Dim latitude = Nothing
-        Dim datetime = Nothing
-        Dim Longitude = Nothing
-        Dim u As New utilities()
-        If directory IsNot Nothing Then
-            If directory.TryGetDateTime(ExifDirectoryBase.TagDateTimeOriginal, datetime) Then
-                Console.WriteLine("datetime" & datetime)
-            End If
-        Else
-            u.LogExifErrors("exifmissing: " & iPath)
-        End If
-        If gpsdirectory IsNot Nothing Then
-            gpsdirectory.GetGeoLocation()
-            latitude = gpsdirectory.GetGeoLocation.Latitude
-            Longitude = gpsdirectory.GetGeoLocation.Longitude
-            '  If directory.TryGetDateTime(GpsDirectory.TagLatitude, latitude) Then
-            Console.WriteLine("Coordinates:" & latitude & "," & Longitude)
-            'u.writeWaypoint(latitude, Longitude, i.ToString())
-            'u.writetrack(latitude, Longitude, i, datetime)
-
-        Else
-            u.LogExifErrors("GPSmissing: " & iPath)
-        End If
 
 
-
-
-    End Sub
     Public Shared Function GetPBTickSize(fileCount As Integer)
         Return fileCount \ 100
     End Function
