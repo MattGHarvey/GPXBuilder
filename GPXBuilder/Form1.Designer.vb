@@ -36,20 +36,20 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(38, 180)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button1.Location = New System.Drawing.Point(51, 225)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(252, 35)
+        Me.Button1.Size = New System.Drawing.Size(336, 44)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Process"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(38, 50)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button2.Location = New System.Drawing.Point(51, 62)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(252, 35)
+        Me.Button2.Size = New System.Drawing.Size(336, 44)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "Choose Image Source Folder"
         Me.Button2.UseVisualStyleBackColor = True
@@ -57,52 +57,52 @@ Partial Class Form1
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(327, 367)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.DataGridView1.Location = New System.Drawing.Point(436, 459)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(938, 230)
+        Me.DataGridView1.Size = New System.Drawing.Size(1251, 288)
         Me.DataGridView1.TabIndex = 2
         Me.DataGridView1.Visible = False
         '
         'ImageCount
         '
-        Me.ImageCount.Location = New System.Drawing.Point(426, 249)
+        Me.ImageCount.Location = New System.Drawing.Point(568, 311)
+        Me.ImageCount.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ImageCount.Name = "ImageCount"
-        Me.ImageCount.Size = New System.Drawing.Size(76, 26)
+        Me.ImageCount.Size = New System.Drawing.Size(100, 31)
         Me.ImageCount.TabIndex = 3
         '
         'pbReading
         '
-        Me.pbReading.Location = New System.Drawing.Point(38, 282)
-        Me.pbReading.Margin = New System.Windows.Forms.Padding(2)
+        Me.pbReading.Location = New System.Drawing.Point(51, 352)
+        Me.pbReading.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.pbReading.Name = "pbReading"
-        Me.pbReading.Size = New System.Drawing.Size(252, 30)
+        Me.pbReading.Size = New System.Drawing.Size(336, 38)
         Me.pbReading.TabIndex = 4
         '
         'lblStatus
         '
         Me.lblStatus.AutoSize = True
-        Me.lblStatus.Location = New System.Drawing.Point(34, 254)
-        Me.lblStatus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblStatus.Location = New System.Drawing.Point(45, 318)
         Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(0, 20)
+        Me.lblStatus.Size = New System.Drawing.Size(0, 25)
         Me.lblStatus.TabIndex = 5
         '
         'btnChooseTrackFile
         '
-        Me.btnChooseTrackFile.Location = New System.Drawing.Point(38, 101)
-        Me.btnChooseTrackFile.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnChooseTrackFile.Location = New System.Drawing.Point(51, 126)
+        Me.btnChooseTrackFile.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnChooseTrackFile.Name = "btnChooseTrackFile"
-        Me.btnChooseTrackFile.Size = New System.Drawing.Size(252, 34)
+        Me.btnChooseTrackFile.Size = New System.Drawing.Size(336, 42)
         Me.btnChooseTrackFile.TabIndex = 6
         Me.btnChooseTrackFile.Text = "Select GPX Files Save Location"
         Me.btnChooseTrackFile.UseVisualStyleBackColor = True
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1096, 597)
+        Me.ClientSize = New System.Drawing.Size(435, 450)
         Me.Controls.Add(Me.btnChooseTrackFile)
         Me.Controls.Add(Me.lblStatus)
         Me.Controls.Add(Me.pbReading)
@@ -111,7 +111,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Form1"

@@ -5,16 +5,22 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GPXBuilder", "GPXBuilder\GPXBuilder.vbproj", "{89CB33C4-5960-4991-A15F-0BFA1840B2A6}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GPXBuilder_Installer", "GPXBuilder_Installer\GPXBuilder_Installer.vdproj", "{1944D011-6AD3-40D9-8D93-212E6E212C50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{89CB33C4-5960-4991-A15F-0BFA1840B2A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89CB33C4-5960-4991-A15F-0BFA1840B2A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89CB33C4-5960-4991-A15F-0BFA1840B2A6}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{89CB33C4-5960-4991-A15F-0BFA1840B2A6}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{89CB33C4-5960-4991-A15F-0BFA1840B2A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89CB33C4-5960-4991-A15F-0BFA1840B2A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1944D011-6AD3-40D9-8D93-212E6E212C50}.Debug|Any CPU.ActiveCfg = Release
+		{1944D011-6AD3-40D9-8D93-212E6E212C50}.Debug|Any CPU.Build.0 = Release
+		{1944D011-6AD3-40D9-8D93-212E6E212C50}.Release|Any CPU.ActiveCfg = Release
+		{1944D011-6AD3-40D9-8D93-212E6E212C50}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
