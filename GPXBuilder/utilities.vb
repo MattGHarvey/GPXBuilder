@@ -9,7 +9,7 @@ Imports MetadataExtractor.Formats.Exif
 
 Public Class utilities
     Public Shared dtab As DataTable
-    Private Declare Function SystemParametersInfo Lib "user32" Alias "SystemParametersInfoA" (ByVal uAction As Integer, ByVal uParam As Integer, ByVal lpvParam As String, ByVal fuWinIni As Integer) As Integer
+    'Private Declare Function SystemParametersInfo Lib "user32" Alias "SystemParametersInfoA" (ByVal uAction As Integer, ByVal uParam As Integer, ByVal lpvParam As String, ByVal fuWinIni As Integer) As Integer
 
 
     Public Shared permalink As String
@@ -26,7 +26,7 @@ Public Class utilities
         Return fileCount \ 100
     End Function
     Public Shared Sub initGPX()
-        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\waypoints.gpx"
+        Dim strFile As String = frmMain.FolderBrowserDialog1.SelectedPath & "\waypoints.gpx"
         Dim sw As StreamWriter
         Try
             sw = File.CreateText(strFile)
@@ -41,7 +41,7 @@ Public Class utilities
 
     End Sub
     Public Shared Sub initTrack()
-        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\tracks.gpx"
+        Dim strFile As String = frmMain.FolderBrowserDialog1.SelectedPath & "\tracks.gpx"
         Dim sw As StreamWriter
         Try
 
@@ -59,7 +59,7 @@ Public Class utilities
         End Try
     End Sub
     Public Sub writeWaypoint(lat As String, lon As String, n As String, fname As String)
-        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\waypoints.gpx"
+        Dim strFile As String = frmMain.FolderBrowserDialog1.SelectedPath & "\waypoints.gpx"
         Dim sw As StreamWriter
         Try
             sw = File.AppendText(strFile)
@@ -76,7 +76,7 @@ Public Class utilities
         End Try
     End Sub
     Public Sub writetrack(lat As String, lon As String, n As String, dt As DateTime, fname As String)
-        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\tracks.gpx"
+        Dim strFile As String = frmMain.FolderBrowserDialog1.SelectedPath & "\tracks.gpx"
         Dim dtS As String = dt.ToString("yyyy-MM-ddTHH:mm:ssZ")
         If dtS = "0001-01-01T00:00:00Z" Then
             Return
@@ -100,7 +100,7 @@ Public Class utilities
         End Try
     End Sub
     Public Shared Sub CloseGPX()
-        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\waypoints.gpx"
+        Dim strFile As String = frmMain.FolderBrowserDialog1.SelectedPath & "\waypoints.gpx"
         Dim sw As StreamWriter
         Try
             sw = File.AppendText(strFile)
@@ -115,7 +115,7 @@ Public Class utilities
         End Try
     End Sub
     Public Shared Sub CloseTracks()
-        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\tracks.gpx"
+        Dim strFile As String = frmMain.FolderBrowserDialog1.SelectedPath & "\tracks.gpx"
         Dim sw As StreamWriter
         Try
             sw = File.AppendText(strFile)
@@ -131,7 +131,7 @@ Public Class utilities
     End Sub
 
     Public Sub LogExifErrors(errormessage As String)
-        Dim strFile As String = Form1.FolderBrowserDialog1.SelectedPath & "\exiferrors.txt"
+        Dim strFile As String = frmMain.FolderBrowserDialog1.SelectedPath & "\exiferrors.txt"
         Dim sw As StreamWriter
         Try
             If (Not File.Exists(strFile)) Then

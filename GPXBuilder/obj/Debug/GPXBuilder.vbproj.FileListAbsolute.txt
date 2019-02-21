@@ -30,7 +30,6 @@ Y:\Documents\GitHub\GPXBuilder\GPXBuilder\bin\Debug\Newtonsoft.Json.pdb
 Y:\Documents\GitHub\GPXBuilder\GPXBuilder\bin\Debug\Newtonsoft.Json.xml
 Y:\Documents\GitHub\GPXBuilder\GPXBuilder\bin\Debug\XmpCore.xml
 Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.vbprojAssemblyReference.cache
-Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.Form1.resources
 Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.Resources.resources
 Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.vbproj.GenerateResource.cache
 Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.vbproj.CoreCompileInputs.cache
@@ -78,3 +77,5 @@ C:\Users\matt\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.pdb
 \\Mac\Home\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.exe
 \\Mac\Home\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.xml
 \\Mac\Home\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.pdb
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.frmMain.resources
+Y:\Documents\GitHub\GPXBuilder\GPXBuilder\obj\Debug\GPXBuilder.frmAbout.resources
