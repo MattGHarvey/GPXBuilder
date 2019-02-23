@@ -11,7 +11,7 @@ Public Class frmMain
         Dim result As Integer
         directory = Me.FolderBrowserDialog1.SelectedPath
         If (directory.Trim() = "") Then
-            result = MsgBox("Please choose a source folder of .jpg images to analyze", MsgBoxStyle.Critical, "Oh noes")
+            result = MsgBox("Please choose a source folder of .jpg images to analyze", MsgBoxStyle.Critical, "Error")
             Return
         End If
         ProcessFiles(directory)
@@ -76,7 +76,8 @@ Public Class frmMain
             Me.btnExportWP.Enabled = True
 
         End If
-        'pbStepCount = 1
+        'Removed below to allow view of Datagrids prior to saving. Saving is now user-actionable
+        'pbStepCount = 1 
         'Me.lblStatus.Text = "Writing GPX files"
         'For j As Integer = 0 To DataGridView1.Rows.Count - 1
 
@@ -137,7 +138,7 @@ Public Class frmMain
         Dim latitude = Nothing
         Dim datetime = Nothing
         Dim Longitude = Nothing
-        Dim filename As String
+        Dim filename As String = ""
         Dim u As New utilities()
         If directory IsNot Nothing Then
             If directory.TryGetDateTime(ExifDirectoryBase.TagDateTimeOriginal, datetime) Then
@@ -160,7 +161,6 @@ Public Class frmMain
                 Globals.dtabError.Rows.Add(latitude, Longitude, datetime, filename)
             End If
         Else
-            ' u.LogExifErrors("GPSmissing: " & iPath)
             Globals.dtabError.Rows.Add(latitude, Longitude, datetime, filename)
         End If
 
@@ -236,7 +236,7 @@ Public Class frmMain
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
-        Application.Exit()
+        End
 
     End Sub
 
