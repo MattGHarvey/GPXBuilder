@@ -18,6 +18,8 @@ Public Class frmMain
     End Sub
     Private Sub ProcessFiles(directory As String)
         Dim di As New DirectoryInfo(directory)
+        Globals.dtab.Reset()
+        Globals.dtabError.Reset()
 
         Dim fiArr As FileInfo() = di.GetFiles("*.jpg") 'we only want *.jpg files
         Dim fri As FileInfo
@@ -233,8 +235,12 @@ Public Class frmMain
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnExportTrack.Click
+        Me.Cursor = Cursors.WaitCursor
+
         WriteTrackFile()
+        Me.Cursor = Cursors.Default
         MsgBox("Track file has been exported to " & Globals.SaveLocation, vbOKOnly, "Export Complete")
+
 
     End Sub
 
