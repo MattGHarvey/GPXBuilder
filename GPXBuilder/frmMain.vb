@@ -31,10 +31,12 @@ Public Class frmMain
         Globals.SaveLocation = FolderBrowserDialog2.SelectedPath
         If Globals.SaveLocation.Trim = "" Then
             result = MsgBox("No save location was selected! Do you want to save GPX files to the source image folder?", 4, "Hmmm...")
+            Globals.SaveLocation = FolderBrowserDialog1.SelectedPath
         End If
         If result = DialogResult.No Then 'TODO: Add code to use selected path or default path
-
-            Return
+            Me.FolderBrowserDialog2.ShowDialog()
+            Globals.SaveLocation = FolderBrowserDialog2.SelectedPath
+            'Return
         End If
 
         Globals.dtab.Columns.Add("Latitude", GetType(System.String))
@@ -232,6 +234,7 @@ Public Class frmMain
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnExportTrack.Click
         WriteTrackFile()
+        MsgBox("Track file has been exported to " & Globals.SaveLocation, vbOKOnly, "Export Complete")
 
     End Sub
 
@@ -247,7 +250,7 @@ Public Class frmMain
 
     Private Sub btnExportWP_Click(sender As Object, e As EventArgs) Handles btnExportWP.Click
         WriteWaypointFile()
-
+        MsgBox("Waypoint file has been exported to " & Globals.SaveLocation, vbOKOnly, "Export Complete")
 
     End Sub
 End Class
