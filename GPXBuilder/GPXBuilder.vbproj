@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="gpxbuilder_TDw_icon.ico" />
+    <Content Include="license.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
